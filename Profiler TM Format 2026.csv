@@ -1,0 +1,57 @@
+Teensy 4.1 Ram,512 KB,,,,,,
+Records per Profile,5000,,,,,,
+Total Memory Use,230,KB,,,,,
+Sensor,Variable,Bits,Bytes,Period (s),Effective bytes,,Profiler.cpp Variable
+GPS,Time,16,2,1,2,,GPS_time
+GPS,Altitude,16,2,1,2,,GPS_alt_m
+GPS,Latitude,16,2,1,2,,GPS_lat
+GPS,Longitude,16,2,1,2,,GPS_lng
+GPS,Satellites,4,0.5,1,0.5,,GPS_satellites
+GPS,Age of Fix,4,0.5,1,0.5,,GPS_age_s
+ROPC,300nm,16,2,1,2,,d300
+ROPC,500nm,16,2,8,0.25,,d500
+ROPC,700nm,16,2,8,0.25,,d700
+ROPC,1000nm,16,2,8,0.25,,d1000
+ROPC,2000nm,16,2,1,2,,d2000
+ROPC,3000nm,16,2,8,0.25,,d2500
+ROPC,5000nm,16,2,8,0.25,,d3000
+ROPC,10000nm,16,2,8,0.25,,d5000
+TSEN,Temperature,16,2,1,2,,TSENString
+TSEN,Pressure,16,2,1,2,,TSENString
+TSEN,Temperature of Pressure,16,2,1,2,,TSENString
+RSS421,Temperature,16,2,1,2,,RS41_air_temp
+RSS422,Pressure,16,2,1,2,,RS41_pres
+RSS423,RH,16,2,1,2,,RS41_humidity
+RSS424,Temperature of RH,16,2,1,2,,RS41_hsensor_temp
+RSS425,RSS421_mag/hk,16,2,8,0.25,,RS41_mag_hdgXY
+TDLAS,VMR_ave,10,1.25,1,1.25,,TDLAS_mr_avg
+TDLAS,VMR_min,10,1.25,1,1.25,,TDLAS_bkg
+TDLAS,TDLAS_bkg,12,1.5,1,1.5,,TDLAS_bkg
+TDLAS,TDLAS_peak,8,1,1,1,,TDLAS_peak
+TDLAS,TDLAS_ratio,10,1.25,1,1.25,,TDLAS_ratio
+TDLAS,TDLAS_indx,8,1,1,1,,TDLAS_indx
+TDLAS,TDLAS_spectra_val1,16,2,1,2,,TDLAS_spec_1
+TDLAS,TDLAS_spectra_val2,16,2,1,2,,TDLAS_spec_2
+TDLAS,TDLAS_spectra_val3,16,2,1,2,,TDLAS_spec_3
+TDLAS,TDLAS_spectra_val4,16,2,1,2,,TDLAS_spec_4
+HK,I_TSEN,8,1,8,0.125,,TSEN_I
+HK,I_ROPC,8,1,8,0.125,,OPC_I
+HK,I_PUMP,8,1,8,0.125,,I_pump
+HK,I_TDLAS,8,1,8,0.125,,TDLAS_I
+HK,V_Batt,12,1.5,8,0.1875,,VBat
+HK,V_5v,8,1,8,0.125,,vmon_5V
+HK,T_Batt,8,1,8,0.125,,BatteryTemp
+HK,T_Pump,8,1,8,0.125,,PumpTemp
+HK,T_PCB,8,1,8,0.125,,PCBTemp
+HK,V_BEMF,16,2,8,0.25,,BEMF1_V
+HK,Heater_stat,4,0.5,8,0.0625,,Battery_Heater_I
+HK,Round Robbin Index,4,0.5,1,0.5,,BEMF1_pwm
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+,,,Total_per_frame,,46,,,
+,,,Total_per_profile,,230000,,,
