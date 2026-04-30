@@ -82,7 +82,7 @@ float Battery_Heater_Setpoint = 20.0f; // [°C]
 // LoRa telemetry
 // ---------------------------------------------------------------------------
 // Transmit a status packet every LORA_TX_INTERVAL loop cycles.
-static const uint8_t LORA_TX_INTERVAL = 10;
+static const uint8_t LORA_TX_INTERVAL = 2;
 static uint8_t loopCount = 0;    // incremented each loop(); rolls over naturally
 
 // Serial number derived from the last two bytes of the Teensy's burned-in
@@ -866,22 +866,27 @@ void loop()
   // --- LoRa telemetry beacon -------------------------------------------------
   // Transmit a compact CSV status packet every LORA_TX_INTERVAL loop cycles.
   // Payload format (all fields comma-separated):
-  //   serial_hex, elapsed_ms, altitude_m, vbat_V, charge_I_A, bat_temp_C, pcb_temp_C
+  //   serial_hex, elapsed_ms, lat, lng, altitude_m, vbat_V, charge_I_A,
+  //   bat_temp_C, pcb_temp_C, rs41_air_temp_C, tdlas_mr_avg
   ++loopCount;
   if (loraEnabled && loopCount >= LORA_TX_INTERVAL)
   {
     loopCount = 0;
 
-    char loraBuf[112];
+    char loraBuf[128];
     snprintf(loraBuf, sizeof(loraBuf),
-      "%04X,%lu,%.2f,%.3f,%.3f,%.2f,%.2f",
+      "%04X,%lu,%.6f,%.6f,%.2f,%.3f,%.3f,%.2f,%.2f,%.2f,%.4f",
       loraSerialNumber,
       millis(),
+      profiler_gps.location.lat(),
+      profiler_gps.location.lng(),
       profiler_gps.altitude.meters(),
       VBat,
       charge_imon,
       BatteryTemp,
-      PCBTemp);
+      PCBTemp,
+      sensor_data.valid ? sensor_data.air_temp_degC : 0.0f,
+      tdlasData.mr_avg);
 
     LoRa.beginPacket();
     LoRa.print(loraBuf);
